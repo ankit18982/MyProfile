@@ -1363,8 +1363,6 @@ img {
     justify-content: space-between;
     /* space elements inside */
     height: 100%;
-    border-radius: 5rem;
-
     /* ensure full slide height */
     padding: 1rem;
 }
@@ -1376,6 +1374,5 @@ img {
     max-height: 80%;
     /* prevents overflow */
     object-fit: contain;
-    border-radius: 5rem;
     /* stops cropping */
 }
