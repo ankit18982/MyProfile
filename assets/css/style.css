@@ -1373,5 +1373,7 @@ img {
     max-height: 80%;
     /* prevents overflow */
     object-fit: contain;
+    border-radius: 0 !important;
+
     /* stops cropping */
 }
