@@ -1354,7 +1354,6 @@ img {
     flex: 0 0 100%;
     position: relative;
     scroll-snap-align: start;
-    border-radius: 2rem;
 
     display: flex;
     flex-direction: column;
