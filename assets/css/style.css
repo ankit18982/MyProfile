@@ -1823,6 +1823,13 @@ body.dark_theme .change_theme {
     margin-bottom: 1.6rem;
 }
 
+.home_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .9rem;
+    align-items: center;
+}
+
 .home_scroll-button {
     color: var(--title-color);
 }
@@ -1859,6 +1866,20 @@ body.dark_theme .change_theme {
 .button--white:hover {
     background: #fff;
     color: var(--title-color);
+}
+
+body.dark_theme .button--whatsapp,
+.button--whatsapp {
+    background: linear-gradient(135deg, #25d366 0%, #1fb955 100%);
+    color: #fff;
+    box-shadow: 0 16px 32px rgba(37, 211, 102, .24);
+}
+
+body.dark_theme .button--whatsapp:hover,
+.button--whatsapp:hover {
+    background: linear-gradient(135deg, #25d366 0%, #1fb955 100%);
+    color: #fff;
+    box-shadow: 0 20px 36px rgba(37, 211, 102, .3);
 }
 
 body.dark_theme .button--white {
