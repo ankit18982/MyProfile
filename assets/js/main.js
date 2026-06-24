@@ -8,6 +8,7 @@ navClose = document.getElementById('nav-close');
 if(navToggle){
     navToggle.addEventListener('click', ()=>{
         navMenu.classList.add('show_menu');
+        document.body.classList.add('menu_open');
     })
 }
 
@@ -16,6 +17,7 @@ if(navToggle){
 if(navClose){
     navClose.addEventListener('click', ()=>{
         navMenu.classList.remove('show_menu');
+        document.body.classList.remove('menu_open');
     })
 }
 /*==================== REMOVE MENU MOBILE ====================*/
@@ -23,6 +25,7 @@ const navLink = document.querySelectorAll('.nav_link');
 function linkAction(){
     const   vMenu = document.getElementById('nav-menu');
     navMenu.classList.remove('show_menu');
+    document.body.classList.remove('menu_open');
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction));

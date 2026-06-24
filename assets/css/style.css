@@ -81,6 +81,10 @@ body.dark_theme {
     --container-color: hsl(var(--hue-color), 29%, 60%);
 }
 
+body.menu_open {
+    overflow: hidden;
+}
+
 /*========== Button Dark/Light ==========*/
 .nav_btns {
     display: flex;
@@ -2519,62 +2523,160 @@ body:not(.dark_theme) .skills_chip {
 
 @media screen and (max-width: 767px) {
     .header {
-        bottom: 0;
-        top: initial;
-        border-top-left-radius: 1.4rem;
-        border-top-right-radius: 1.4rem;
-        border-bottom: none;
-        box-shadow: 0 -10px 30px rgba(15, 23, 42, .1);
+        top: 0;
+        bottom: initial;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-bottom-left-radius: 1.2rem;
+        border-bottom-right-radius: 1.2rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .18);
     }
 
     .nav_menu {
-        left: 1rem;
-        right: 1rem;
-        width: auto;
-        bottom: -110%;
-        border-radius: 1.4rem;
-        background: rgba(255, 255, 255, .78);
-        border: 1px solid rgba(15, 23, 42, .08);
-        box-shadow: var(--shadow-lg);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        height: 100vh;
+        padding: 5rem 1rem 1.25rem;
+        border-radius: 0;
+        background: rgba(5, 10, 20, .96);
+        border: none;
+        box-shadow: none;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform .32s ease, opacity .32s ease, visibility .32s ease;
+        z-index: var(--z-modal);
     }
 
     body.dark_theme .nav_menu {
-        background: rgba(8, 12, 22, .88);
+        background: rgba(5, 10, 20, .96);
     }
 
     .nav_list {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: .95rem;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding-top: 1rem;
+    }
+
+    .nav_link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem 1.1rem;
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, .04);
+        border-color: rgba(255, 255, 255, .06);
+    }
+
+    .nav_link:hover,
+    .active-link {
+        transform: none;
+    }
+
+    .nav_close {
+        position: absolute;
+        top: 1.1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .show_menu {
+        transform: translateY(0);
+        bottom: auto;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav_cta {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: calc(var(--z-modal) + 1);
+        margin: 0;
+        justify-content: center;
+        display: none;
+    }
+
+    body.menu_open .nav_cta {
+        display: inline-flex;
     }
 
     .main {
-        padding-bottom: calc(var(--header-height) + 1.75rem);
+        padding-top: var(--header-height);
     }
 
     .home {
-        padding-bottom: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
     }
 
     .home_container {
-        gap: 1.35rem;
+        gap: 1.6rem;
     }
 
     .home_content {
-        grid-template-columns: 48px 1fr;
+        grid-template-columns: 1fr;
+        justify-items: center;
         row-gap: 1.25rem;
-        padding-top: 2.75rem;
+        padding-top: 1.5rem;
+    }
+
+    .home_social {
+        display: none;
+    }
+
+    .home_scroll {
+        display: none;
     }
 
     .home_img {
         width: min(100%, 240px);
-        height: 330px;
-        grid-column: 2;
+        height: 320px;
+        grid-column: auto;
         justify-self: center;
         aspect-ratio: auto;
     }
 
     .home_data {
+        grid-column: auto;
         margin-top: 0;
+        text-align: center;
+    }
+
+    .home_overline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home_badges {
+        justify-content: center;
+    }
+
+    .home_description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home_buttons {
+        justify-content: center;
+    }
+
+    .home_buttons .button {
+        width: min(100%, 210px);
     }
 
     .about_info {
