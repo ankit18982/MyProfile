@@ -26,11 +26,16 @@ if(navClose){
 }
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav_link');
+const navCta = document.querySelector('.nav_cta');
 function linkAction(){
     closeMenu();
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
+
+if(navCta){
+    navCta.addEventListener('click', closeMenu);
+}
 
 if(navMenu){
     navMenu.addEventListener('click', (event) => {
