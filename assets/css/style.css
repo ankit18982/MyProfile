@@ -2645,8 +2645,8 @@ body:not(.dark_theme) .skills_chip {
     }
 
     .home_img {
-        width: min(86vw, 290px);
-        aspect-ratio: 0.82 / 1;
+        width: min(82vw, 270px);
+        aspect-ratio: 0.75 / 1;
         height: auto;
         grid-column: auto;
         justify-self: center;
