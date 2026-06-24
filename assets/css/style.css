@@ -2629,8 +2629,9 @@ body:not(.dark_theme) .skills_chip {
     }
 
     .home_content {
-        grid-template-columns: 1fr;
-        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         row-gap: 1.25rem;
         padding-top: 1.5rem;
     }
@@ -2644,14 +2645,16 @@ body:not(.dark_theme) .skills_chip {
     }
 
     .home_img {
-        width: min(100%, 240px);
-        height: 320px;
+        width: min(86vw, 290px);
+        aspect-ratio: 0.82 / 1;
+        height: auto;
         grid-column: auto;
         justify-self: center;
-        aspect-ratio: auto;
+        display: block;
     }
 
     .home_data {
+        width: 100%;
         grid-column: auto;
         margin-top: 0;
         text-align: center;
