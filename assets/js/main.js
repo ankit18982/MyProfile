@@ -3,32 +3,42 @@ const navMenu = document.getElementById('nav-menu'),
 navToggle = document.getElementById('nav-toggle'),
 navClose = document.getElementById('nav-close');
 
+function openMenu(){
+    navMenu.classList.add('show_menu');
+    document.body.classList.add('menu_open');
+}
+
+function closeMenu(){
+    navMenu.classList.remove('show_menu');
+    document.body.classList.remove('menu_open');
+}
+
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
 if(navToggle){
-    navToggle.addEventListener('click', ()=>{
-        navMenu.classList.add('show_menu');
-        document.body.classList.add('menu_open');
-    })
+    navToggle.addEventListener('click', openMenu);
 }
 
 /*===== MENU HIDDEN =====*/
 /* Validate if constant exists */
 if(navClose){
-    navClose.addEventListener('click', ()=>{
-        navMenu.classList.remove('show_menu');
-        document.body.classList.remove('menu_open');
-    })
+    navClose.addEventListener('click', closeMenu);
 }
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav_link');
 function linkAction(){
-    const   vMenu = document.getElementById('nav-menu');
-    navMenu.classList.remove('show_menu');
-    document.body.classList.remove('menu_open');
+    closeMenu();
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
+
+if(navMenu){
+    navMenu.addEventListener('click', (event) => {
+        if(event.target === navMenu){
+            closeMenu();
+        }
+    });
+}
 /*==================== ACCORDION SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills_content'),
 skillsHeader = document.querySelectorAll('.skills_header');
