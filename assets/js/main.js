@@ -90,18 +90,37 @@ modalCloses.forEach((modalClose)=>{
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-let swiper = new Swiper(".portfolio_container", {
-    cssMode: true,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true
-    }
-  });
+const portfolioSwiper = document.querySelector('.portfolio_container.swiper');
+if (portfolioSwiper) {
+    let swiper = new Swiper(".portfolio_container", {
+        loop: false,
+        grabCursor: true,
+        spaceBetween: 24,
+        slidesPerView: 1,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
+        breakpoints: {
+            568: {
+                slidesPerView: 1.1,
+                spaceBetween: 18
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20
+            },
+            1024: {
+                slidesPerView: 2.6,
+                spaceBetween: 24
+            }
+        }
+    });
+}
 
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper(".testimonial_container", {
@@ -166,11 +185,18 @@ window.addEventListener('scroll', scrollUp);
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeToggleButton = document.getElementById('theme-toggle');
 const darkTheme= 'dark_theme';
-const iconTheme = 'uil-sun';
 
 //previosuly selected
-const selectedTheme = localStorage.getItem('selected-theme');
-const selectedIcon = localStorage.getItem('selected-icon');
+const themeStorageKey = 'portfolio-theme-v2';
+const iconStorageKey = 'portfolio-icon-v2';
+const selectedTheme = localStorage.getItem(themeStorageKey);
+const sunIconClass = 'uil-sun';
+const moonIconClass = 'uil-moon';
+
+const syncThemeIcon = (themeMode) => {
+    themeToggleButton.classList.remove(sunIconClass, moonIconClass);
+    themeToggleButton.classList.add(themeMode === 'dark' ? sunIconClass : moonIconClass);
+};
 
 //get current theme
 const getCurrentTheme = ()=>{
@@ -182,24 +208,26 @@ const getCurrentTheme = ()=>{
 }
 //get current icon
 const getCurrentIcon = ()=>{
-    if(themeToggleButton.classList.contains(iconTheme)){
-        return 'uil-moon';
+    if(document.body.classList.contains(darkTheme)){
+        return sunIconClass;
     }else{
-        return 'uil-sun'
+        return moonIconClass;
     }
 }
 if(selectedTheme){
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-    themeToggleButton.classList[selectedIcon == 'uil-moon' ? 'add' : 'remove'](iconTheme);
+    syncThemeIcon(selectedTheme);
+} else {
+    syncThemeIcon(getCurrentTheme());
 }
 
 // Manually toggle theme 
 themeToggleButton.addEventListener('click', ()=>{
     document.body.classList.toggle(darkTheme);
-    themeToggleButton.classList.toggle(iconTheme);
+    syncThemeIcon(getCurrentTheme());
     //save the choices
-    localStorage.setItem('selected-theme', getCurrentTheme());
-    localStorage.setItem('selected-icon', getCurrentIcon());
+    localStorage.setItem(themeStorageKey, getCurrentTheme());
+    localStorage.setItem(iconStorageKey, getCurrentIcon());
     console.log(getCurrentTheme());
     console.log(getCurrentIcon());
 });
