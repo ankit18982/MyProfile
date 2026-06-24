@@ -2547,19 +2547,34 @@ body:not(.dark_theme) .skills_chip {
         gap: 1rem;
     }
 
+    .main {
+        padding-bottom: calc(var(--header-height) + 1.75rem);
+    }
+
+    .home {
+        padding-bottom: 1.5rem;
+    }
+
+    .home_container {
+        gap: 1.35rem;
+    }
+
     .home_content {
         grid-template-columns: 48px 1fr;
+        row-gap: 1.25rem;
+        padding-top: 2.75rem;
     }
 
     .home_img {
-        width: min(100%, 250px);
+        width: min(100%, 240px);
+        height: 330px;
         grid-column: 2;
-        justify-self: end;
+        justify-self: center;
         aspect-ratio: auto;
     }
 
     .home_data {
-        margin-top: .5rem;
+        margin-top: 0;
     }
 
     .about_info {
