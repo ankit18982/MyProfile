@@ -2557,6 +2557,11 @@ body:not(.dark_theme) .skills_chip {
         z-index: var(--z-modal);
     }
 
+    body:not(.dark_theme) .nav_menu {
+        background: rgba(245, 241, 234, .98);
+        border-bottom: 1px solid rgba(15, 23, 42, .08);
+    }
+
     body.dark_theme .nav_menu {
         background: rgba(5, 10, 20, .96);
     }
@@ -2577,6 +2582,17 @@ body:not(.dark_theme) .skills_chip {
         border-radius: 1rem;
         background: rgba(255, 255, 255, .04);
         border-color: rgba(255, 255, 255, .06);
+        color: #fff;
+    }
+
+    body:not(.dark_theme) .nav_link {
+        background: rgba(15, 23, 42, .04);
+        border-color: rgba(15, 23, 42, .06);
+        color: var(--title-color);
+    }
+
+    .nav_icon {
+        color: inherit;
     }
 
     .nav_link:hover,
