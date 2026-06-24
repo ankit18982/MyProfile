@@ -2690,6 +2690,28 @@ body:not(.dark_theme) .skills_chip {
         width: min(100%, 210px);
     }
 
+    .about_container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        padding: 1.25rem 1rem;
+        gap: 1.25rem;
+    }
+
+    .about_img {
+        width: min(100%, 320px);
+        max-width: 320px;
+        height: auto;
+        border-radius: 1.4rem;
+    }
+
+    .about_data {
+        width: 100%;
+    }
+
+    .about_description {
+        text-align: left;
+    }
+
     .about_info {
         grid-template-columns: 1fr;
     }
