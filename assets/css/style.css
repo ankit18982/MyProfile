@@ -2645,12 +2645,16 @@ body:not(.dark_theme) .skills_chip {
     }
 
     .home_img {
-        width: min(82vw, 270px);
-        aspect-ratio: 0.75 / 1;
+        width: min(78vw, 255px);
+        aspect-ratio: 0.88 / 1;
         height: auto;
         grid-column: auto;
         justify-self: center;
         display: block;
+    }
+
+    .home_img img {
+        object-position: center 10%;
     }
 
     .home_data {
